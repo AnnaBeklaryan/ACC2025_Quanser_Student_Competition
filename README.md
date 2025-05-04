@@ -81,11 +81,13 @@ While A* provides fast pathfinding, it falls short when optimizing for time. The
 1. **Follow official software setup guide:**  
    [ACC 2025 Software Setup Instructions](https://github.com/quanser/ACC-Competition-2025/blob/main/Software_Guides/ACC%20Software%20Setup%20Instructions.md)
 
-2. **Clone and move the repository:**
+2. **In Terminal 1, clone and move the repository:**
    ```bash
    git clone https://github.com/csie-foundation/ACC2025_Quanser_Student_Competition.git
    mv ACC2025_Quanser_Student_Competition/Setup_Real_Scenario_Interleaved.py /home/$USER/Documents/ACC_Development/docker/virtual_qcar2/python/Base_Scenarios_Python/
-   mv ACC2025_Quanser_Student_Competition/ /home/$USER/Documents/ACC_Development/Development/ros2/src/
+   rm -rf /home/$USER/Documents/ACC_Development/Development/ros2/src/*
+   mv -f ACC2025_Quanser_Student_Competition/* /home/$USER/Documents/ACC_Development/Development/ros2/src/
+
    ```
 
 3. **Start Docker and install dependencies:**
@@ -113,7 +115,7 @@ While A* provides fast pathfinding, it falls short when optimizing for time. The
 
 Open multiple terminals and execute the following:
 
-### Terminal 1 (`virtual_qcar2` container)
+### Terminal 2 (`virtual_qcar2` container)
 
 Spawn the virtual environment with obstacle:
 
@@ -123,16 +125,16 @@ Spawn the virtual environment with obstacle:
    python3 /home/qcar2_scripts/python/Base_Scenarios_Python/Setup_Real_Scenario_Interleaved.py --with_obstacle
    ```
 
-### Terminal 2 (`isaac_ros_dev-x86_64-container` container)
+### Terminal 1 (`isaac_ros_dev-x86_64-container` container)
 
 ```bash
-source /workspaces/isaac_ros-dev/ros2/install/setup.bash
 ros2 launch polyctrl run_sim.launch.py
 ```
 
 ### Terminal 3 (`isaac_ros_dev-x86_64-container` container)
 
 ```bash
+docker exec -it isaac_ros_dev-x86_64-container bash
 source /workspaces/isaac_ros-dev/ros2/install/setup.bash
 ros2 run polyctrl Detection_node
 ```
@@ -140,6 +142,8 @@ ros2 run polyctrl Detection_node
 ### Terminal 4 (`isaac_ros_dev-x86_64-container` container) – Choose one:
 
 ```bash
+docker exec -it isaac_ros_dev-x86_64-container bash
+source /workspaces/isaac_ros-dev/ros2/install/setup.bash
 ros2 run polyctrl MPC_node --with_obstacle #Runs MPCC with an obstacle avoidance constraint
 ros2 run polyctrl MPC_node #Runs MPCC with no obstacle avoidance constraint
 ros2 run polyctrl PID_node #Runs PID with no obstacle avoidance
