@@ -25,7 +25,6 @@ We also implemented a custom path planning module based on the D* algorithm to c
 
 Additionally, the system manages pick-up and drop-off points using the TF framework to ensure full stops and completion of a ride cycle. Once the ride ends, the vehicle returns to the taxi hub.
 
-
 ## Hardware & Software Requirements
 
 - **Operating System:** Ubuntu 24.04  
@@ -77,6 +76,7 @@ While A* provides fast pathfinding, it falls short when optimizing for time. The
 
 
 ## Setup Instructions
+!!! Due to mismatches in the lidar configurations, we have made a few changes in `qcar2_nodes` and that's why it is important to clone the whole repo
 
 1. **Follow official software setup guide:**  
    [ACC 2025 Software Setup Instructions](https://github.com/quanser/ACC-Competition-2025/blob/main/Software_Guides/ACC%20Software%20Setup%20Instructions.md)
