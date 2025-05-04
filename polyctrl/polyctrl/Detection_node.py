@@ -57,13 +57,8 @@ class DetectionNode(Node):
             return
 
         # Detect and visualize
-        cv2.namedWindow('YOLOv8 Detection', cv2.WINDOW_NORMAL)
         annotated_frame, detections = self.detect_objects(frame)
-        resized_annotated_frame = cv2.resize(annotated_frame, (800, 540))  # Resize to 600x800
-        cv2.resizeWindow('YOLOv8 Detection',800, 540)
-
-        # Show the resized frame in the window
-        cv2.imshow("YOLOv8 Detection", resized_annotated_frame)
+        cv2.imshow("YOLOv8 Detection", annotated_frame)
         cv2.waitKey(1)
 
         if detections:
