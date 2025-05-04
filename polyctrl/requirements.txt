@@ -1,0 +1,4 @@
+opencv-python==4.11.0.86
+ultralytics==8.3.126
+casadi==3.7.0
+transforms3d==0.4.2
