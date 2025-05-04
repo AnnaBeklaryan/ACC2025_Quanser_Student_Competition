@@ -76,8 +76,7 @@ While A* provides fast pathfinding, it falls short when optimizing for time. The
 
 
 ## Setup Instructions
-!!! Due to mismatches in the lidar configurations, we have made a few changes in `qcar2_nodes` and that's why it is important to clone the whole repo
-
+**IMPORTANT**: Due to mismatches in the LiDAR configurations, we have made some changes in `qcar2_nodes`. For this reason, it is important to clone the entire repository.
 1. **Follow official software setup guide:**  
    [ACC 2025 Software Setup Instructions](https://github.com/quanser/ACC-Competition-2025/blob/main/Software_Guides/ACC%20Software%20Setup%20Instructions.md)
 
