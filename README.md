@@ -150,8 +150,7 @@ ros2 run polyctrl PID_node #Runs PID with no obstacle avoidance
 
 ## Results
 
-Watch our simulation results on [YouTube]([https://youtube.com](https://youtu.be/hXROHxayZ28?feature=shared)).
-
+Watch our simulation results on [YouTube](https://youtu.be/hXROHxayZ28?si=GNq6yHOPLpouN1bS)
 
 ## Support
 
